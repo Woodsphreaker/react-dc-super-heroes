@@ -4,7 +4,12 @@ const HeaderContainer = styled.div`
   max-width: 500px;
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #9a0000;
+  border-radius: 4px;
+  position: relative;
+  opacity: 0.9;
 `
 
 const Header = styled.div`
@@ -15,7 +20,7 @@ const Header = styled.div`
   justify-content: center;
 
   img {
-    max-width: 350px;
+    max-width: 300px;
   }
 `
 
@@ -36,7 +41,7 @@ const SubmitButton = styled.button`
   padding: 10px;
   margin-left: 5px;
   border-radius: 4px;
-  background-color: #7159c1;
+  background-color: #d0a808;
   color: #fff;
 `
 

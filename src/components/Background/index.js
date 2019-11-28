@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import Image from '../../assets/lego.jpg'
 
 const Background = styled.div`
@@ -8,7 +7,7 @@ const Background = styled.div`
   background-position: top;
   height: 100%;
   width: 100%;
-  opacity: 0.2;
+  opacity: 0.5;
   position: fixed;
   top: 0;
 `

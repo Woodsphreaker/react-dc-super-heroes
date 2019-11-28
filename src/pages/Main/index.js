@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 
 import { Background } from '../../components/Background'
 import { Container } from '../../components/Container'
-import logo from '../../assets/dc-heroes-logo.png'
+import logo from '../../assets/DC_logo.png'
 import {
   HeaderContainer,
   Header,
@@ -46,24 +46,24 @@ class Main extends Component {
     return (
       <>
         <Background />
-        <Container>
-          <HeaderContainer>
-            <Header>
-              <img src={logo} alt="" />
-            </Header>
-            <Form>
-              <input
-                placeholder="search your hero..."
-                onChange={hero =>
-                  this.setState({ searchedHero: hero.target.value })
-                }
-                type="text"
-                value={searchedHero}
-              />
-              <SubmitButton onClick={this.handleSubmit}>GO</SubmitButton>
-            </Form>
-          </HeaderContainer>
+        <HeaderContainer>
+          <Header>
+            <img src={logo} alt="" />
+          </Header>
+          <Form>
+            <input
+              placeholder="search your hero..."
+              onChange={hero =>
+                this.setState({ searchedHero: hero.target.value })
+              }
+              type="text"
+              value={searchedHero}
+            />
+            <SubmitButton onClick={this.handleSubmit}>GO</SubmitButton>
+          </Form>
+        </HeaderContainer>
 
+        <Container>
           {heroes.map(data => (
             <ListHeroes key={data.name}>{data.name}</ListHeroes>
           ))}
