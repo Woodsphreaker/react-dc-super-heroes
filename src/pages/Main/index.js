@@ -67,7 +67,7 @@ class Main extends Component {
           {heroes.map(data => (
             <ListHeroes key={data.name}>{data.name}</ListHeroes>
           ))}
-        </Container>
+        </Container> 
       </>
     )
   }
