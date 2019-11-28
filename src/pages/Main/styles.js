@@ -4,12 +4,16 @@ const HeaderContainer = styled.div`
   max-width: 500px;
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   margin: 50px auto;
   padding: 20px;
   background-color: #9a0000;
   border-radius: 4px;
   position: relative;
   opacity: 0.9;
+=======
+  margin: auto;
+>>>>>>> 4d6c3cf83b8a1330bda84b31b718b0fbe72e75de
 `
 
 const Header = styled.div`
@@ -20,7 +24,11 @@ const Header = styled.div`
   justify-content: center;
 
   img {
+<<<<<<< HEAD
     max-width: 300px;
+=======
+    max-width: 350px;
+>>>>>>> 4d6c3cf83b8a1330bda84b31b718b0fbe72e75de
   }
 `
 
@@ -41,7 +49,11 @@ const SubmitButton = styled.button`
   padding: 10px;
   margin-left: 5px;
   border-radius: 4px;
+<<<<<<< HEAD
   background-color: #d0a808;
+=======
+  background-color: #7159c1;
+>>>>>>> 4d6c3cf83b8a1330bda84b31b718b0fbe72e75de
   color: #fff;
 `
 
