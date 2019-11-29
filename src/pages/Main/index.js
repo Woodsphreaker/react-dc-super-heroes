@@ -23,70 +23,72 @@ import {
   HeroesList,
 } from './styles'
 
+const data = [
+  {
+    name: 'Batman',
+    img: `${batman}`,
+    desc:
+      'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
+  },
+  {
+    name: 'Superman',
+    img: `${superman}`,
+    desc:
+      'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
+  },
+  {
+    name: 'Aquaman',
+    img: `${aquaman}`,
+    desc:
+      'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
+  },
+  {
+    name: 'Joker',
+    img: `${joker}`,
+    desc:
+      'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
+  },
+  {
+    name: 'Wonder Woman',
+    img: `${wonderWoman}`,
+    desc:
+      'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
+  },
+  {
+    name: 'Robin',
+    img: `${robin}`,
+    desc:
+      'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
+  },
+  {
+    name: 'Flash',
+    img: `${flash}`,
+    desc:
+      'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
+  },
+  {
+    name: 'Bane',
+    img: `${bane}`,
+    desc:
+      'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
+  },
+  {
+    name: 'Green Lantern',
+    img: `${greenLantern}`,
+    desc:
+      'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
+  },
+]
+
 class Main extends Component {
   state = {
     searchedHero: '',
-    heroes: [
-      {
-        name: 'Batman',
-        img: `${batman}`,
-        desc:
-          'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-      },
-      {
-        name: 'Superman',
-        img: `${superman}`,
-        desc:
-          'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-      },
-      {
-        name: 'Aquaman',
-        img: `${aquaman}`,
-        desc:
-          'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-      },
-      {
-        name: 'Joker',
-        img: `${joker}`,
-        desc:
-          'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-      },
-      {
-        name: 'Wonder Woman',
-        img: `${wonderWoman}`,
-        desc:
-          'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-      },
-      {
-        name: 'Robin',
-        img: `${robin}`,
-        desc:
-          'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-      },
-      {
-        name: 'Flash',
-        img: `${flash}`,
-        desc:
-          'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-      },
-      {
-        name: 'Bane',
-        img: `${bane}`,
-        desc:
-          'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-      },
-      {
-        name: 'Green Lantern',
-        img: `${greenLantern}`,
-        desc:
-          'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-      },
-    ],
+    heroes: [],
     loading: false,
   }
 
   componentDidMount = () => {
-    // this.setState({ heroes: data })
+    this.setState({ heroes: data })
   }
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -95,13 +97,28 @@ class Main extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
+
+    const { heroes, searchedHero } = this.state
+    console.log(searchedHero)
+
+    if (!searchedHero) {
+      return this.setState({
+        heroes: data,
+      })
+    }
+
+    const filteredHeroes = heroes.filter(({ name }) =>
+      name.toLowerCase().includes(searchedHero.toLowerCase())
+    )
+
     this.setState({
+      heroes: filteredHeroes,
       searchedHero: '',
     })
   }
 
   handleClick = ({ name }) => {
-    console.log(name)
+    // console.log(name)
     return <Link to="/description" />
   }
 
@@ -136,9 +153,7 @@ class Main extends Component {
                 <img src={el.img} alt="" />
                 <h1>{el.name}</h1>
                 <span>{el.desc}</span>
-                <button onClick={() => this.handleClick(el)}>
-                  HERO DETAILS
-                </button>
+                <Link to="/description">HERO DETAILS</Link>
               </li>
             ))}
           </HeroesList>

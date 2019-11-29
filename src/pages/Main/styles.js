@@ -66,6 +66,7 @@ const HeroesList = styled.ul`
     img {
       width: 100%;
       max-height: 300px;
+      min-height: 300px;
       background-color: #142025;
       border-radius: 4px;
       padding: 10px 10px;
@@ -86,6 +87,15 @@ const HeroesList = styled.ul`
       font-family: Arial, Helvetica, sans-serif;
       text-align: left;
       margin: 10px 5px;
+    }
+
+    a {
+      text-decoration: none;
+      text-align: center;
+      background-color: #142025;
+      padding: 10px;
+      color: #fff;
+      border-radius: 4px;
     }
   }
 `
