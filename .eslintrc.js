@@ -27,11 +27,7 @@ module.exports = {
     'prettier'
   ],
   rules: {
-<<<<<<< HEAD
-    // 'prettier/prettier': 'error',
-=======
     'prettier/prettier': 'error',
->>>>>>> 4d6c3cf83b8a1330bda84b31b718b0fbe72e75de
     'react/jsx-filename-extension': ['warn', {extensions: ['.jsx', '.js']}],
     'import/prefer-default-export': 'off',
     'quotes': ['error', 'single'],
