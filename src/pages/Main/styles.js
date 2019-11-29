@@ -60,7 +60,7 @@ const HeroesList = styled.ul`
     padding: 5px 5px;
     min-width: 300px;
     max-width: 300px;
-    background-color: #746502;
+    background-color: #3c3c3c;
     border-radius: 4px;
 
     img {
@@ -83,8 +83,10 @@ const HeroesList = styled.ul`
     }
 
     span {
-      color: #909090;
+      color: #fff;
       font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      line-height: 25px;
       text-align: left;
       margin: 10px 5px;
     }
@@ -95,6 +97,7 @@ const HeroesList = styled.ul`
       background-color: #142025;
       padding: 10px;
       color: #fff;
+      font-weight: bold;
       border-radius: 4px;
     }
   }
