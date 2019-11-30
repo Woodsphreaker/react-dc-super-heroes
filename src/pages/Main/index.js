@@ -119,7 +119,12 @@ class Main extends Component {
 
   handleClick = ({ name }) => {
     // console.log(name)
-    return <Link to="/description" />
+    return {
+      pathname: '/description',
+      state: {
+        name,
+      },
+    }
   }
 
   listHeroes = () => {}
@@ -153,7 +158,7 @@ class Main extends Component {
                 <img src={el.img} alt="" />
                 <h1>{el.name}</h1>
                 <span>{el.desc}</span>
-                <Link to="/description">HERO DETAILS</Link>
+                <Link to={() => this.handleClick(el)}>HERO DETAILS</Link>
               </li>
             ))}
           </HeroesList>

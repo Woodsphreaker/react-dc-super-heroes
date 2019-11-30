@@ -6,6 +6,8 @@ import { Title, SubTitle } from './styles'
 
 class Description extends Component {
   render() {
+    console.log(this.props)
+
     return (
       <>
         <Background />
