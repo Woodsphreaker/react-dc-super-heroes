@@ -6,7 +6,8 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   margin: 50px auto;
   padding: 20px;
-  background-color: #9a0000;
+  // border: 1px solid #403939;
+  background-color: #1d2e3d;
   border-radius: 4px;
   position: relative;
   opacity: 0.8;
@@ -69,7 +70,7 @@ const HeroesList = styled.ul`
       min-height: 300px;
       background-color: #142025;
       border-radius: 4px;
-      padding: 10px 10px;
+      // padding: 10px 10px;
     }
 
     h1 {
@@ -89,6 +90,8 @@ const HeroesList = styled.ul`
       line-height: 25px;
       text-align: left;
       margin: 10px 5px;
+      height: 200px;
+      overflow: hidden;
     }
 
     a {
