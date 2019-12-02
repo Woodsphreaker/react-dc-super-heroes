@@ -83,7 +83,7 @@ import {
 
 class Main extends Component {
   state = {
-    searchedHero: '',
+    searchHero: '',
     allHeroes: [],
     heroes: [],
     loading: false,
@@ -94,14 +94,19 @@ class Main extends Component {
       loading: true,
     })
 
-    const storage = localStorage.getItem('heroes')
+    const allHeroes = localStorage.getItem('allHeroes')
+    const searchedHero = localStorage.getItem('searchedHero') || '{}'
 
-    if (!storage) {
+    if (!allHeroes) {
       return this.getHeroesList()
     }
 
+    const { searchHero, heroes } = JSON.parse(searchedHero)
+
     this.setState({
-      allHeroes: JSON.parse(storage),
+      allHeroes: JSON.parse(allHeroes),
+      searchHero: searchHero || '',
+      heroes: heroes || [],
       loading: false,
     })
   }
@@ -109,7 +114,7 @@ class Main extends Component {
   getHeroesList = async () => {
     const { data } = await api.get('/all.json')
 
-    const heroes = data
+    const allHeroes = data
       // .filter(
       //   ({ biography }) =>
       //     biography.publisher && biography.publisher.includes('DC Comics')
@@ -121,10 +126,10 @@ class Main extends Component {
         desc: 'Lorem ipsum dolor',
       }))
 
-    localStorage.setItem('heroes', JSON.stringify(heroes))
+    localStorage.setItem('allHeroes', JSON.stringify(allHeroes))
 
     this.setState({
-      allHeroes: heroes,
+      allHeroes,
       loading: false,
     })
   }
@@ -136,21 +141,29 @@ class Main extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
 
-    const { allHeroes, searchedHero } = this.state
+    const { allHeroes, searchHero } = this.state
 
-    if (!searchedHero) {
+    if (!searchHero) {
+      localStorage.removeItem('searchedHero')
       return this.setState({
         heroes: [],
       })
     }
 
     const filteredHeroes = allHeroes.filter(({ name }) =>
-      name.toLowerCase().includes(searchedHero.toLowerCase())
+      name.toLowerCase().includes(searchHero.toLowerCase())
+    )
+
+    localStorage.setItem(
+      'searchedHero',
+      JSON.stringify({
+        searchHero,
+        heroes: filteredHeroes,
+      })
     )
 
     this.setState({
       heroes: filteredHeroes,
-      // searchedHero: '',
     })
   }
 
@@ -163,10 +176,8 @@ class Main extends Component {
     }
   }
 
-  listHeroes = () => {}
-
   render() {
-    const { searchedHero, heroes } = this.state
+    const { searchHero, heroes } = this.state
     return (
       <>
         <Background />
@@ -178,10 +189,10 @@ class Main extends Component {
             <input
               placeholder="search your hero..."
               onChange={hero =>
-                this.setState({ searchedHero: hero.target.value })
+                this.setState({ searchHero: hero.target.value })
               }
               type="text"
-              value={searchedHero}
+              value={searchHero}
             />
             <SubmitButton onClick={this.handleSubmit}>GO</SubmitButton>
           </Form>
