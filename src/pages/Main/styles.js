@@ -61,7 +61,7 @@ const HeroesList = styled.ul`
     padding: 5px 5px;
     min-width: 300px;
     max-width: 300px;
-    background-color: #3c3c3c;
+    background-color: #1d2e3d;
     border-radius: 4px;
 
     img {

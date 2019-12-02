@@ -7,9 +7,8 @@ const Background = styled.div`
   background-position: top;
   height: 100%;
   width: 100%;
-  opacity: 0.5;
+  opacity: 0.4;
   position: fixed;
-  // background-color: #ff0000;
   top: 0;
 `
 
