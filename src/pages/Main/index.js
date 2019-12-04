@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 import { Background } from '../../components/Background'
 import { Container } from '../../components/Container'
@@ -22,7 +22,11 @@ import {
   Form,
   SubmitButton,
   HeroesList,
+  HeroInfo,
+  HeroInfoList,
 } from './styles'
+
+// import HeroInfo from '../../components/HeroInfo'
 
 // const data = [
 //   {
@@ -124,6 +128,14 @@ class Main extends Component {
         name: hero.name,
         img: hero.images.md,
         desc: 'Lorem ipsum dolor',
+        features: [
+          {
+            appearance: hero.appearance,
+          },
+          {
+            powerstats: hero.powerstats,
+          },
+        ],
       }))
 
     localStorage.setItem('allHeroes', JSON.stringify(allHeroes))
@@ -200,12 +212,32 @@ class Main extends Component {
 
         <Container>
           <HeroesList>
-            {heroes.map(el => (
+            {heroes.map(({ features, ...el }) => (
               <li key={`${el.id}-${el.name}`}>
                 <img src={el.img} alt="" />
                 <h1>{el.name}</h1>
-                <span>{el.desc}</span>
-                <Link to={() => this.handleClick(el)}>HERO DETAILS</Link>
+                <HeroInfo>
+                  {features.map(feature => {
+                    return Object.entries(feature).map(([key, value]) => {
+                      return (
+                        <section key>
+                          <h2>{key}</h2>
+                          {Object.entries(value).map(([key, value]) => {
+                            return (
+                              <HeroInfoList key>
+                                <li>
+                                  {key}
+                                  <span>{value}</span>
+                                </li>
+                              </HeroInfoList>
+                            )
+                          })}
+                        </section>
+                      )
+                    })
+                  })}
+                </HeroInfo>
+                {/* <Link to={() => this.handleClick(el)}>HERO DETAILS</Link> */}
               </li>
             ))}
           </HeroesList>
