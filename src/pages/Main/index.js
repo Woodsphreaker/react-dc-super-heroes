@@ -4,86 +4,17 @@ import React, { Component } from 'react'
 import { Background } from '../../components/Background'
 import { Container } from '../../components/Container'
 import logo from '../../assets/DC_logo_2.png'
-// import batman from '../../assets/heroes/batman.png'
-// import superman from '../../assets/heroes/superman.png'
-// import aquaman from '../../assets/heroes/aquaman.png'
-// import joker from '../../assets/heroes/joker.png'
-// import wonderWoman from '../../assets/heroes/wonderWoman.png'
-// import robin from '../../assets/heroes/robin.png'
-// import flash from '../../assets/heroes/flash.png'
-// import bane from '../../assets/heroes/bane.png'
-// import greenLantern from '../../assets/heroes/green-lantern.png'
-
 import api from '../../services/api'
 
 import {
-  HeaderContainer,
   Header,
+  Logo,
   Form,
   SubmitButton,
   HeroesList,
   HeroInfo,
   HeroInfoList,
 } from './styles'
-
-// import HeroInfo from '../../components/HeroInfo'
-
-// const data = [
-//   {
-//     name: 'Batman',
-//     img: `${batman}`,
-//     desc:
-//       'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-//   },
-//   {
-//     name: 'Superman',
-//     img: `${superman}`,
-//     desc:
-//       'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-//   },
-//   {
-//     name: 'Aquaman',
-//     img: `${aquaman}`,
-//     desc:
-//       'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-//   },
-//   {
-//     name: 'Joker',
-//     img: `${joker}`,
-//     desc:
-//       'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-//   },
-//   {
-//     name: 'Wonder Woman',
-//     img: `${wonderWoman}`,
-//     desc:
-//       'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-//   },
-//   {
-//     name: 'Robin',
-//     img: `${robin}`,
-//     desc:
-//       'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-//   },
-//   {
-//     name: 'Flash',
-//     img: `${flash}`,
-//     desc:
-//       'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-//   },
-//   {
-//     name: 'Bane',
-//     img: `${bane}`,
-//     desc:
-//       'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-//   },
-//   {
-//     name: 'Green Lantern',
-//     img: `${greenLantern}`,
-//     desc:
-//       'Batman secret identity is Bruce Wayne, a wealthy American playboy, philanthropist, and owner of Wayne Enterprises. His origin depicts Bruce Wayne as a child, after witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne, he swore vengeance against criminals, an oath tempered by a sense of justice. Bruce Wayne trains himself physically and intellectually and crafts a bat-inspired persona to fight crime.',
-//   },
-// ]
 
 class Main extends Component {
   state = {
@@ -123,20 +54,21 @@ class Main extends Component {
       //   ({ biography }) =>
       //     biography.publisher && biography.publisher.includes('DC Comics')
       // )
-      .map(hero => ({
-        id: hero.id,
-        name: hero.name,
-        img: hero.images.md,
-        desc: 'Lorem ipsum dolor',
-        features: [
-          {
-            appearance: hero.appearance,
-          },
-          {
-            powerstats: hero.powerstats,
-          },
-        ],
-      }))
+      .map(hero => {
+        const { fullName, alignment, alterEgos } = hero.biography
+
+        return {
+          id: hero.id,
+          name: hero.name,
+          img: hero.images.md,
+
+          features: [
+            { label: 'biography', data: { fullName, alignment, alterEgos } },
+            { label: 'appearance', data: hero.appearance },
+            { label: 'powerstats', data: hero.powerstats },
+          ],
+        }
+      })
 
     localStorage.setItem('allHeroes', JSON.stringify(allHeroes))
 
@@ -144,10 +76,6 @@ class Main extends Component {
       allHeroes,
       loading: false,
     })
-  }
-
-  componentDidUpdate = (prevProps, prevState) => {
-    // console.log(this.state.heroes)
   }
 
   handleSubmit = ev => {
@@ -193,49 +121,43 @@ class Main extends Component {
     return (
       <>
         <Background />
-        <HeaderContainer>
-          <Header>
-            <img src={logo} alt="" />
-          </Header>
-          <Form>
-            <input
-              placeholder="search your hero..."
-              onChange={hero =>
-                this.setState({ searchHero: hero.target.value })
-              }
-              type="text"
-              value={searchHero}
-            />
-            <SubmitButton onClick={this.handleSubmit}>GO</SubmitButton>
-          </Form>
-        </HeaderContainer>
-
         <Container>
+          <Header>
+            <Logo>
+              <img src={logo} alt="" />
+            </Logo>
+            <Form>
+              <input
+                placeholder="search your hero..."
+                onChange={hero =>
+                  this.setState({ searchHero: hero.target.value })
+                }
+                type="text"
+                value={searchHero}
+              />
+              <SubmitButton onClick={this.handleSubmit}>GO</SubmitButton>
+            </Form>
+          </Header>
+
           <HeroesList>
             {heroes.map(({ features, ...el }) => (
               <li key={`${el.id}-${el.name}`}>
                 <img src={el.img} alt="" />
                 <h1>{el.name}</h1>
                 <HeroInfo>
-                  {features.map(feature => {
-                    return Object.entries(feature).map(([key, value]) => {
-                      return (
-                        <section key>
-                          <h2>{key}</h2>
-                          {Object.entries(value).map(([key, value]) => {
-                            return (
-                              <HeroInfoList key>
-                                <li>
-                                  {key}
-                                  <span>{value}</span>
-                                </li>
-                              </HeroInfoList>
-                            )
-                          })}
-                        </section>
-                      )
-                    })
-                  })}
+                  {features.map(({ label, data }) => (
+                    <section key={label}>
+                      <h2>{label}</h2>
+                      {Object.entries(data).map(([key, value], i) => (
+                        <HeroInfoList key={`${key}-${i}`}>
+                          <li>
+                            {key}
+                            <span>{value}</span>
+                          </li>
+                        </HeroInfoList>
+                      ))}
+                    </section>
+                  ))}
                 </HeroInfo>
                 {/* <Link to={() => this.handleClick(el)}>HERO DETAILS</Link> */}
               </li>

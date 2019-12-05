@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-// import Image from '../assets/224562.jpg'
-
 export default createGlobalStyle`
   * {
     margin: 0;

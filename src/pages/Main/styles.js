@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const HeaderContainer = styled.div`
+const Header = styled.div`
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@ const HeaderContainer = styled.div`
   opacity: 0.8;
 `
 
-const Header = styled.div`
+const Logo = styled.div`
   margin-bottom: 20px;
   padding-bottom: 20px;
   display: flex;
@@ -123,7 +123,7 @@ const HeroInfoList = styled.ul`
   li {
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 5px 0;
     background-color: transparent;
     display: flex;
     flex-direction: row;
@@ -135,16 +135,9 @@ const HeroInfoList = styled.ul`
 
     span {
       font-weight: normal;
+      text-align: right;
     }
   }
 `
 
-export {
-  HeaderContainer,
-  Header,
-  Form,
-  SubmitButton,
-  HeroesList,
-  HeroInfo,
-  HeroInfoList,
-}
+export { Header, Logo, Form, SubmitButton, HeroesList, HeroInfo, HeroInfoList }
