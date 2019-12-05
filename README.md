@@ -1,5 +1,5 @@
 
-# React Heroes API
+# React Heroes APP
 
 ![](https://img.shields.io/github/stars/Woodsphreaker/react-dc-super-heroes) ![](https://img.shields.io/github/stars/Woodsphreaker/react-dc-super-heroes) ![](https://img.shields.io/github/forks/Woodsphreaker/react-dc-super-heroes) ![](https://img.shields.io/github/issues/Woodsphreaker/react-dc-super-heroes)
 
